@@ -43,7 +43,7 @@ jobs:
         run: |
           set -e
           TARGET="$(echo '${{ matrix.target }}' | sed 's/f//')"; \
-          ./fbt fap_lora_app fap_lora_relay
+          ./fbt TARGET_HW=$TARGET DEBUG=0 COMPACT=1 fap_dist updater_package
           echo "sdk-file=$(ls dist/${{ matrix.target }}-*/flipper-z-${{ matrix.target }}-sdk-*.zip)" >> $GITHUB_OUTPUT
           echo "hw-target-code=$TARGET" >> $GITHUB_OUTPUT
 
