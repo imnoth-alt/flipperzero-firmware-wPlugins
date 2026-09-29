@@ -1,7 +1,9 @@
 name: 'Compact build'
 
 on:
-  pull_request:
+  workflow_dispatch:
+  push:
+    branches: [ dev, master, main ]
 
 env:
   FBT_TOOLCHAIN_PATH: /runner/_work
