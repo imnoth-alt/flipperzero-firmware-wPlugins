@@ -336,7 +336,9 @@ int32_t lora_relay_run(LoRaRelay* instance) {
 int32_t lora_relay_app(void* p) {
     UNUSED(p);
 
-    spi->cs = &gpio_ext_pc0;
+    // Standard-SPI-Konfiguration in unsere modifizierbare Struktur kopieren
+    memcpy(&spi_handle, &furi_hal_spi_bus_handle_external, sizeof(FuriHalSpiBusHandle));
+    spi_handle.cs = &gpio_ext_pc0;
 
     furi_hal_spi_bus_handle_init(spi);
 
@@ -351,7 +353,7 @@ int32_t lora_relay_app(void* p) {
     lora_relay_free(instance);
 
     furi_hal_spi_bus_handle_deinit(spi);
-    spi->cs = &gpio_ext_pa4;
+    spi_handle.cs = &gpio_ext_pa4;
 
     // Typically when a pin is no longer in use, it is set to analog mode.
     furi_hal_gpio_init_simple(pin_led, GpioModeAnalog);
