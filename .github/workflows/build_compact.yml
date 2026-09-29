@@ -77,7 +77,11 @@ jobs:
               popd
             done
           done
-
+      - name: 'Upload firmware update package'
+        uses: actions/upload-artifact@v4
+        with:
+          name: flipper-firmware-${{ matrix.target }}
+          path: dist/
 ## Uncomment this for a single job that will run only if all targets are built successfully          
 #  report-status:
 #    name: Report status
