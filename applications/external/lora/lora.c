@@ -1044,7 +1044,7 @@ bool begin() {
 
     uint32_t lora_freq = getFreqInt();
 
-    FURI_LOG_E(TAG, " FREQUENCY: %ld", lora_freq);
+    FURI_LOG_E(TAG, " FREQUENCY: %lu", lora_freq);
 
     return true; //Return success that we set up the radio
 }
