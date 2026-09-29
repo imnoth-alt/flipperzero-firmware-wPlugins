@@ -21,7 +21,12 @@
 
 #define LORA_APP_FOLDER "apps_data/lora"
 
-static const FuriHalSpiBusHandle* spi = &furi_hal_spi_bus_handle_external;
+// ALT:
+// static const FuriHalSpiBusHandle* spi = &furi_hal_spi_bus_handle_external;
+
+// NEU:
+static FuriHalSpiBusHandle spi_handle;
+static const FuriHalSpiBusHandle* spi = &spi_handle;
 
 const GpioPin* const pin_led = &gpio_swclk;
 const GpioPin* const pin_back = &gpio_button_back;
