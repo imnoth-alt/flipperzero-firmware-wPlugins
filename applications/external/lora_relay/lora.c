@@ -720,7 +720,7 @@ void transmit(uint8_t* data, int dataLen) {
     // Reminder: PayloadLength is defined in setPacketParams
     furi_hal_gpio_write(pin_nss1, false); // Enable radio chip-select
 
-    spiBuff[0] = 0x0E, // Opcode for WriteBuffer command
+    spiBuff[0] = 0x0E; // Opcode for WriteBuffer command
         spiBuff[1] = 0x00; // Dummy byte before writing payload
 
     furi_hal_spi_acquire(spi);
@@ -1015,7 +1015,7 @@ bool begin() {
 
     uint32_t lora_freq = getFreqInt();
 
-    FURI_LOG_E(TAG, " FREQUENCY: %ld", lora_freq);
+    FURI_LOG_E(TAG, " FREQUENCY: %lu", lora_freq);
 
     return true; // Return success that we set up the radio
 }
