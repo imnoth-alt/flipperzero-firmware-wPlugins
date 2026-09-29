@@ -1495,7 +1495,7 @@ static void lora_view_sniffer_draw_callback(Canvas* canvas, void* model) {
             //JSON format
             snprintf(
                 final_string,
-                666,
+                sizeof(final_string),
                 "{\"date\":\"%s\", \"time\":\"%s\", \"frequency\":\"%s\", \"bw\":\"%s\", \"sf\":\"%s\", \"RSSI\":\"%d\", \"payload\":\"%s\"}",
                 date_string,
                 time_string,
