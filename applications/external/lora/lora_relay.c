@@ -1489,7 +1489,7 @@ static void lora_view_sniffer_draw_callback(Canvas* canvas, void* model) {
                 curr_dt.month,
                 curr_dt.day);
 
-            char final_string[400];
+            char final_string[700];
             const char* freq_str = furi_string_get_cstr(my_model->config_freq_name);
 
             //JSON format
